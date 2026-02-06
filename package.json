@@ -1,5 +1,5 @@
 {
-    "name": "@kflow/almadar-operators",
+    "name": "@almadar/operators",
     "version": "0.1.0",
     "description": "Single source of truth for S-expression operator definitions",
     "type": "module",
