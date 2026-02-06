@@ -1,0 +1,1350 @@
+{
+    "version": "1.0.0",
+    "description": "Single source of truth for S-expression operators. Used by almadar-core, almadar-evaluator, almadar-std, and orbital-rust.",
+    "categories": {
+        "arithmetic": {
+            "description": "Numeric operations",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "comparison": {
+            "description": "Value comparison",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "logic": {
+            "description": "Boolean logic",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "control": {
+            "description": "Control flow",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "effect": {
+            "description": "Side effects (runtime only)",
+            "target": [
+                "ts"
+            ]
+        },
+        "collection": {
+            "description": "Collection operations",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "std-math": {
+            "description": "Math utilities",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "std-str": {
+            "description": "String utilities",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "std-array": {
+            "description": "Array utilities",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "std-object": {
+            "description": "Object utilities",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "std-time": {
+            "description": "Date/time utilities",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "std-validate": {
+            "description": "Validation utilities",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "std-format": {
+            "description": "Formatting utilities",
+            "target": [
+                "ts",
+                "rust"
+            ]
+        },
+        "std-async": {
+            "description": "Async utilities (runtime only)",
+            "target": [
+                "ts"
+            ]
+        },
+        "std-nn": {
+            "description": "Neural network (Python compile target)",
+            "target": [
+                "python"
+            ]
+        },
+        "std-tensor": {
+            "description": "Tensor operations (Python compile target)",
+            "target": [
+                "python"
+            ]
+        },
+        "std-train": {
+            "description": "Training utilities (Python compile target)",
+            "target": [
+                "python"
+            ]
+        }
+    },
+    "operators": {
+        "+": {
+            "category": "arithmetic",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "number",
+            "description": "Add numbers"
+        },
+        "-": {
+            "category": "arithmetic",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Subtract or negate"
+        },
+        "*": {
+            "category": "arithmetic",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "number",
+            "description": "Multiply numbers"
+        },
+        "/": {
+            "category": "arithmetic",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Divide numbers"
+        },
+        "%": {
+            "category": "arithmetic",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Modulo (remainder)"
+        },
+        "abs": {
+            "category": "arithmetic",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Absolute value"
+        },
+        "min": {
+            "category": "arithmetic",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "number",
+            "description": "Minimum of values"
+        },
+        "max": {
+            "category": "arithmetic",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "number",
+            "description": "Maximum of values"
+        },
+        "floor": {
+            "category": "arithmetic",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Round down"
+        },
+        "ceil": {
+            "category": "arithmetic",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Round up"
+        },
+        "round": {
+            "category": "arithmetic",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Round to nearest"
+        },
+        "clamp": {
+            "category": "arithmetic",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "number",
+            "description": "Clamp to range"
+        },
+        "=": {
+            "category": "comparison",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Equal to"
+        },
+        "!=": {
+            "category": "comparison",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Not equal to"
+        },
+        "<": {
+            "category": "comparison",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Less than"
+        },
+        ">": {
+            "category": "comparison",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Greater than"
+        },
+        "<=": {
+            "category": "comparison",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Less than or equal"
+        },
+        ">=": {
+            "category": "comparison",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Greater than or equal"
+        },
+        "and": {
+            "category": "logic",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "boolean",
+            "description": "Logical AND"
+        },
+        "or": {
+            "category": "logic",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "boolean",
+            "description": "Logical OR"
+        },
+        "not": {
+            "category": "logic",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "boolean",
+            "description": "Logical NOT"
+        },
+        "if": {
+            "category": "logic",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "any",
+            "description": "Conditional"
+        },
+        "let": {
+            "category": "control",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "any",
+            "description": "Bind local variables"
+        },
+        "do": {
+            "category": "control",
+            "minArity": 1,
+            "maxArity": null,
+            "returnType": "any",
+            "description": "Sequential execution"
+        },
+        "when": {
+            "category": "control",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Conditional effect"
+        },
+        "fn": {
+            "category": "control",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "function",
+            "description": "Lambda expression"
+        },
+        "set": {
+            "category": "effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Set binding value",
+            "hasSideEffects": true
+        },
+        "emit": {
+            "category": "effect",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Emit event",
+            "hasSideEffects": true
+        },
+        "persist": {
+            "category": "effect",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "void",
+            "description": "Persist data",
+            "hasSideEffects": true
+        },
+        "navigate": {
+            "category": "effect",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Navigate to route",
+            "hasSideEffects": true
+        },
+        "notify": {
+            "category": "effect",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Show notification",
+            "hasSideEffects": true
+        },
+        "spawn": {
+            "category": "effect",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Spawn entity",
+            "hasSideEffects": true
+        },
+        "despawn": {
+            "category": "effect",
+            "minArity": 0,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Despawn entity",
+            "hasSideEffects": true
+        },
+        "call-service": {
+            "category": "effect",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "void",
+            "description": "Call external service",
+            "hasSideEffects": true
+        },
+        "render-ui": {
+            "category": "effect",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "void",
+            "description": "Render UI component",
+            "hasSideEffects": true
+        },
+        "map": {
+            "category": "collection",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Transform elements"
+        },
+        "filter": {
+            "category": "collection",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Filter by predicate"
+        },
+        "find": {
+            "category": "collection",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "any",
+            "description": "Find first match"
+        },
+        "count": {
+            "category": "collection",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Count elements"
+        },
+        "sum": {
+            "category": "collection",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Sum values"
+        },
+        "first": {
+            "category": "collection",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "any",
+            "description": "First element"
+        },
+        "last": {
+            "category": "collection",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "any",
+            "description": "Last element"
+        },
+        "nth": {
+            "category": "collection",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "any",
+            "description": "Element at index"
+        },
+        "concat": {
+            "category": "collection",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "array",
+            "description": "Concatenate"
+        },
+        "includes": {
+            "category": "collection",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Check inclusion"
+        },
+        "empty": {
+            "category": "collection",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "boolean",
+            "description": "Check if empty"
+        },
+        "math/abs": {
+            "category": "std-math",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Absolute value"
+        },
+        "math/min": {
+            "category": "std-math",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "number",
+            "description": "Minimum"
+        },
+        "math/max": {
+            "category": "std-math",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "number",
+            "description": "Maximum"
+        },
+        "math/clamp": {
+            "category": "std-math",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "number",
+            "description": "Clamp to range"
+        },
+        "math/floor": {
+            "category": "std-math",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Round down"
+        },
+        "math/ceil": {
+            "category": "std-math",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Round up"
+        },
+        "math/round": {
+            "category": "std-math",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Round"
+        },
+        "math/pow": {
+            "category": "std-math",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Power"
+        },
+        "math/sqrt": {
+            "category": "std-math",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Square root"
+        },
+        "math/mod": {
+            "category": "std-math",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Modulo"
+        },
+        "math/sign": {
+            "category": "std-math",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Sign (-1, 0, 1)"
+        },
+        "math/lerp": {
+            "category": "std-math",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "number",
+            "description": "Linear interpolation"
+        },
+        "math/map": {
+            "category": "std-math",
+            "minArity": 5,
+            "maxArity": 5,
+            "returnType": "number",
+            "description": "Map range"
+        },
+        "math/random": {
+            "category": "std-math",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "number",
+            "description": "Random 0-1"
+        },
+        "math/randomInt": {
+            "category": "std-math",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Random integer"
+        },
+        "math/default": {
+            "category": "std-math",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Default for null/NaN"
+        },
+        "str/len": {
+            "category": "std-str",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "String length"
+        },
+        "str/concat": {
+            "category": "std-str",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "string",
+            "description": "Concatenate strings"
+        },
+        "str/upper": {
+            "category": "std-str",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "string",
+            "description": "Uppercase"
+        },
+        "str/lower": {
+            "category": "std-str",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "string",
+            "description": "Lowercase"
+        },
+        "str/trim": {
+            "category": "std-str",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "string",
+            "description": "Trim whitespace"
+        },
+        "str/slice": {
+            "category": "std-str",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "string",
+            "description": "Slice substring"
+        },
+        "str/split": {
+            "category": "std-str",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Split string"
+        },
+        "str/join": {
+            "category": "std-str",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "string",
+            "description": "Join array"
+        },
+        "str/includes": {
+            "category": "std-str",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Contains substring"
+        },
+        "str/startsWith": {
+            "category": "std-str",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Starts with"
+        },
+        "str/endsWith": {
+            "category": "std-str",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Ends with"
+        },
+        "str/replace": {
+            "category": "std-str",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "string",
+            "description": "Replace first"
+        },
+        "str/replaceAll": {
+            "category": "std-str",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "string",
+            "description": "Replace all"
+        },
+        "str/template": {
+            "category": "std-str",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "string",
+            "description": "Template substitution"
+        },
+        "str/capitalize": {
+            "category": "std-str",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "string",
+            "description": "Capitalize first"
+        },
+        "str/reverse": {
+            "category": "std-str",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "string",
+            "description": "Reverse string"
+        },
+        "str/repeat": {
+            "category": "std-str",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "string",
+            "description": "Repeat string"
+        },
+        "str/truncate": {
+            "category": "std-str",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "string",
+            "description": "Truncate with ellipsis"
+        },
+        "str/default": {
+            "category": "std-str",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "string",
+            "description": "Default for null"
+        },
+        "array/len": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Array length"
+        },
+        "array/map": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Map elements"
+        },
+        "array/filter": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Filter elements"
+        },
+        "array/find": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "any",
+            "description": "Find first"
+        },
+        "array/reduce": {
+            "category": "std-array",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "any",
+            "description": "Reduce array"
+        },
+        "array/every": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "All match"
+        },
+        "array/some": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Any match"
+        },
+        "array/first": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "any",
+            "description": "First element"
+        },
+        "array/last": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "any",
+            "description": "Last element"
+        },
+        "array/nth": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "any",
+            "description": "Element at index"
+        },
+        "array/slice": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "array",
+            "description": "Slice array"
+        },
+        "array/concat": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "array",
+            "description": "Concatenate arrays"
+        },
+        "array/includes": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Contains element"
+        },
+        "array/reverse": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "array",
+            "description": "Reverse array"
+        },
+        "array/sort": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Sort array"
+        },
+        "array/unique": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "array",
+            "description": "Remove duplicates"
+        },
+        "array/flatten": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Flatten nested"
+        },
+        "array/groupBy": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Group by key"
+        },
+        "array/sum": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Sum values"
+        },
+        "array/avg": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Average value"
+        },
+        "array/min": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Minimum value"
+        },
+        "array/max": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Maximum value"
+        },
+        "array/take": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Take first N"
+        },
+        "array/drop": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Drop first N"
+        },
+        "array/append": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Append element"
+        },
+        "array/prepend": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Prepend element"
+        },
+        "array/insert": {
+            "category": "std-array",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "array",
+            "description": "Insert at index"
+        },
+        "array/remove": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Remove at index"
+        },
+        "array/shuffle": {
+            "category": "std-array",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "array",
+            "description": "Shuffle array"
+        },
+        "array/zip": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "array",
+            "description": "Zip arrays"
+        },
+        "array/partition": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Partition by predicate"
+        },
+        "array/reject": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Reject by predicate"
+        },
+        "object/get": {
+            "category": "std-object",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "any",
+            "description": "Get property"
+        },
+        "object/set": {
+            "category": "std-object",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "object",
+            "description": "Set property"
+        },
+        "object/has": {
+            "category": "std-object",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Has property"
+        },
+        "object/keys": {
+            "category": "std-object",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "array",
+            "description": "Get keys"
+        },
+        "object/values": {
+            "category": "std-object",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "array",
+            "description": "Get values"
+        },
+        "object/entries": {
+            "category": "std-object",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "array",
+            "description": "Get entries"
+        },
+        "object/merge": {
+            "category": "std-object",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "object",
+            "description": "Merge objects"
+        },
+        "object/pick": {
+            "category": "std-object",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Pick keys"
+        },
+        "object/omit": {
+            "category": "std-object",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Omit keys"
+        },
+        "object/clone": {
+            "category": "std-object",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "object",
+            "description": "Shallow clone"
+        },
+        "object/equals": {
+            "category": "std-object",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Deep equals"
+        },
+        "object/filter": {
+            "category": "std-object",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Filter entries"
+        },
+        "time/now": {
+            "category": "std-time",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "number",
+            "description": "Current timestamp"
+        },
+        "time/today": {
+            "category": "std-time",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "string",
+            "description": "Today's date"
+        },
+        "time/format": {
+            "category": "std-time",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "string",
+            "description": "Format date"
+        },
+        "time/parse": {
+            "category": "std-time",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Parse date string"
+        },
+        "time/add": {
+            "category": "std-time",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "number",
+            "description": "Add duration"
+        },
+        "time/subtract": {
+            "category": "std-time",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "number",
+            "description": "Subtract duration"
+        },
+        "time/diff": {
+            "category": "std-time",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "number",
+            "description": "Difference in units"
+        },
+        "time/isBefore": {
+            "category": "std-time",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Is before"
+        },
+        "time/isAfter": {
+            "category": "std-time",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Is after"
+        },
+        "time/isPast": {
+            "category": "std-time",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "boolean",
+            "description": "Is in past"
+        },
+        "time/isFuture": {
+            "category": "std-time",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "boolean",
+            "description": "Is in future"
+        },
+        "time/year": {
+            "category": "std-time",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Get year"
+        },
+        "time/month": {
+            "category": "std-time",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Get month"
+        },
+        "time/day": {
+            "category": "std-time",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Get day"
+        },
+        "time/hour": {
+            "category": "std-time",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Get hour"
+        },
+        "time/minute": {
+            "category": "std-time",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Get minute"
+        },
+        "time/weekday": {
+            "category": "std-time",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Get weekday"
+        },
+        "validate/required": {
+            "category": "std-validate",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "boolean",
+            "description": "Is not empty"
+        },
+        "validate/email": {
+            "category": "std-validate",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "boolean",
+            "description": "Valid email"
+        },
+        "validate/url": {
+            "category": "std-validate",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "boolean",
+            "description": "Valid URL"
+        },
+        "validate/phone": {
+            "category": "std-validate",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "boolean",
+            "description": "Valid phone"
+        },
+        "validate/uuid": {
+            "category": "std-validate",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "boolean",
+            "description": "Valid UUID"
+        },
+        "validate/pattern": {
+            "category": "std-validate",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Matches regex"
+        },
+        "validate/min": {
+            "category": "std-validate",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Value >= min"
+        },
+        "validate/max": {
+            "category": "std-validate",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Value <= max"
+        },
+        "validate/range": {
+            "category": "std-validate",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "boolean",
+            "description": "Value in range"
+        },
+        "validate/minLength": {
+            "category": "std-validate",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Length >= min"
+        },
+        "validate/maxLength": {
+            "category": "std-validate",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Length <= max"
+        },
+        "validate/length": {
+            "category": "std-validate",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "boolean",
+            "description": "Length in range"
+        },
+        "validate/equals": {
+            "category": "std-validate",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Values equal"
+        },
+        "validate/oneOf": {
+            "category": "std-validate",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Value in set"
+        },
+        "validate/check": {
+            "category": "std-validate",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "object",
+            "description": "Check with message"
+        },
+        "format/number": {
+            "category": "std-format",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "string",
+            "description": "Format number"
+        },
+        "format/currency": {
+            "category": "std-format",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "string",
+            "description": "Format currency"
+        },
+        "format/percent": {
+            "category": "std-format",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "string",
+            "description": "Format percent"
+        },
+        "format/bytes": {
+            "category": "std-format",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "string",
+            "description": "Format bytes"
+        },
+        "format/phone": {
+            "category": "std-format",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "string",
+            "description": "Format phone"
+        },
+        "format/list": {
+            "category": "std-format",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "string",
+            "description": "Format list"
+        },
+        "format/plural": {
+            "category": "std-format",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "string",
+            "description": "Pluralize"
+        },
+        "format/ordinal": {
+            "category": "std-format",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "string",
+            "description": "Ordinal (1st, 2nd)"
+        },
+        "async/delay": {
+            "category": "std-async",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Delay execution",
+            "hasSideEffects": true
+        },
+        "async/debounce": {
+            "category": "std-async",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Debounce effect",
+            "hasSideEffects": true
+        },
+        "async/throttle": {
+            "category": "std-async",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Throttle effect",
+            "hasSideEffects": true
+        },
+        "async/retry": {
+            "category": "std-async",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "void",
+            "description": "Retry on failure",
+            "hasSideEffects": true
+        },
+        "async/timeout": {
+            "category": "std-async",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Timeout effect",
+            "hasSideEffects": true
+        },
+        "async/sequence": {
+            "category": "std-async",
+            "minArity": 1,
+            "maxArity": null,
+            "returnType": "void",
+            "description": "Sequential effects",
+            "hasSideEffects": true
+        },
+        "async/all": {
+            "category": "std-async",
+            "minArity": 1,
+            "maxArity": null,
+            "returnType": "void",
+            "description": "Parallel effects",
+            "hasSideEffects": true
+        },
+        "async/race": {
+            "category": "std-async",
+            "minArity": 1,
+            "maxArity": null,
+            "returnType": "void",
+            "description": "Race effects",
+            "hasSideEffects": true
+        }
+    }
+}

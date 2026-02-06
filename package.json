@@ -1,0 +1,28 @@
+{
+    "name": "@kflow/almadar-operators",
+    "version": "0.1.0",
+    "description": "Single source of truth for S-expression operator definitions",
+    "type": "module",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/index.d.ts",
+            "import": "./dist/index.js"
+        },
+        "./operators.json": "./operators.json"
+    },
+    "scripts": {
+        "build": "tsc",
+        "generate-rust": "tsx scripts/generate-rust.ts"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "typescript": "^5.0.0",
+        "tsx": "^4.0.0"
+    },
+    "files": [
+        "dist",
+        "operators.json"
+    ]
+}
