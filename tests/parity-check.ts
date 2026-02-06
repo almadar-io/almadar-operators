@@ -70,8 +70,9 @@ function getRustOperators(): string[] {
         return [];
     }
     const content = readFileSync(rustPath, 'utf-8');
-    // Match patterns like "operator" => or "module/operator" =>
-    const matches = content.matchAll(/"([a-z]+(?:\/[a-zA-Z]+)?)" =>/g);
+    // Match all operators in the dispatch: "operator" => or "op" | "alias" =>
+    // Captures: +, -, *, /, %, =, !=, <, >, <=, >=, and, or, not, array/map, etc.
+    const matches = content.matchAll(/"([^"]+)"\s*(?:=>|\|)/g);
     return [...new Set([...matches].map(m => m[1]))].sort();
 }
 

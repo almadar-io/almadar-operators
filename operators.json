@@ -1345,6 +1345,62 @@
             "returnType": "void",
             "description": "Race effects",
             "hasSideEffects": true
+        },
+        "array/dropLast": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Drop last N elements"
+        },
+        "array/findIndex": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Find index of first match"
+        },
+        "array/indexOf": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Find index of element"
+        },
+        "array/range": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "array",
+            "description": "Generate range of numbers"
+        },
+        "array/repeat": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Create array by repeating value"
+        },
+        "array/takeLast": {
+            "category": "std-array",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Take last N elements"
+        },
+        "average": {
+            "category": "collection",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Average of values"
+        },
+        "contains": {
+            "category": "collection",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Check if collection contains element"
         }
     }
 }
