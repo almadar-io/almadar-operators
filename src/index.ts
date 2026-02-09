@@ -10,13 +10,7 @@
  * @packageDocumentation
  */
 
-import { readFileSync } from 'fs';
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const operatorsPath = join(__dirname, '..', 'operators.json');
-const operators = JSON.parse(readFileSync(operatorsPath, 'utf-8'));
+import operators from '../operators.json' with { type: 'json' };
 
 // ============================================================================
 // Types
