@@ -1,6 +1,6 @@
 {
   "name": "@almadar/operators",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Single source of truth for S-expression operator definitions",
   "type": "module",
   "main": "./dist/index.js",
