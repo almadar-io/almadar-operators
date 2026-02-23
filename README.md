@@ -1,0 +1,25 @@
+# @almadar/operators
+
+> Single source of truth for S-expression operator definitions
+
+Part of the [Almadar](https://github.com/almadar-io/almadar) platform.
+
+## Installation
+
+```bash
+npm install @almadar/operators
+```
+
+## Usage
+
+```typescript
+import { /* ... */ } from '@almadar/operators';
+```
+
+## API
+
+<!-- Document public exports here -->
+
+## License
+
+MIT
