@@ -27,9 +27,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/almadar-io/almadar-operators.git"
+    "url": "https://github.com/almadar-io/almadar.git",
+    "directory": "docs/packages/operators"
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "homepage": "https://github.com/almadar-io/almadar#readme"
 }
