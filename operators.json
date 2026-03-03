@@ -115,6 +115,12 @@
             "target": [
                 "python"
             ]
+        },
+        "std-prob": {
+            "description": "Probabilistic programming (distributions, inference, statistics)",
+            "target": [
+                "ts"
+            ]
         }
     },
     "operators": {
@@ -1401,6 +1407,120 @@
             "maxArity": 2,
             "returnType": "boolean",
             "description": "Check if collection contains element"
+        },
+        "prob/seed": {
+            "category": "std-prob",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Set seeded PRNG for deterministic sampling",
+            "hasSideEffects": true
+        },
+        "prob/flip": {
+            "category": "std-prob",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "boolean",
+            "description": "Bernoulli trial (coin flip with probability p)"
+        },
+        "prob/gaussian": {
+            "category": "std-prob",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Sample from Gaussian distribution (mu, sigma)"
+        },
+        "prob/uniform": {
+            "category": "std-prob",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Sample from uniform distribution [lo, hi)"
+        },
+        "prob/beta": {
+            "category": "std-prob",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Sample from Beta(alpha, beta) distribution"
+        },
+        "prob/categorical": {
+            "category": "std-prob",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "any",
+            "description": "Weighted random selection from items"
+        },
+        "prob/poisson": {
+            "category": "std-prob",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Sample from Poisson distribution (lambda)"
+        },
+        "prob/condition": {
+            "category": "std-prob",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Reject current sample if predicate is false",
+            "hasSideEffects": true
+        },
+        "prob/sample": {
+            "category": "std-prob",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Evaluate expression n times, collect results"
+        },
+        "prob/posterior": {
+            "category": "std-prob",
+            "minArity": 4,
+            "maxArity": 4,
+            "returnType": "array",
+            "description": "Rejection sampling: returns accepted query values"
+        },
+        "prob/infer": {
+            "category": "std-prob",
+            "minArity": 4,
+            "maxArity": 4,
+            "returnType": "object",
+            "description": "Inference with summary stats (mean, variance, acceptRate)"
+        },
+        "prob/expected-value": {
+            "category": "std-prob",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Mean of numeric samples"
+        },
+        "prob/variance": {
+            "category": "std-prob",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Population variance of numeric samples"
+        },
+        "prob/histogram": {
+            "category": "std-prob",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Bin samples into histogram {binEdges, counts}"
+        },
+        "prob/percentile": {
+            "category": "std-prob",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Get p-th percentile (0-100) from samples"
+        },
+        "prob/credible-interval": {
+            "category": "std-prob",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Symmetric credible interval [lo, hi] from samples"
         }
     }
 }
