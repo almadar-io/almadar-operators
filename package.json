@@ -1,6 +1,6 @@
 {
   "name": "@almadar/operators",
-  "version": "2.0.7",
+  "version": "2.1.0",
   "description": "Single source of truth for S-expression operator definitions",
   "type": "module",
   "main": "./dist/index.js",
@@ -22,7 +22,7 @@
   "devDependencies": {
     "eslint": "10.0.0",
     "@typescript-eslint/parser": "8.56.0",
-    "@almadar/eslint-plugin": ">=2.3.0",
+    "@almadar/eslint-plugin": ">=2.5.0",
     "typescript": "^5.0.0",
     "tsx": "^4.0.0"
   },
@@ -36,6 +36,7 @@
     "directory": "docs/packages/operators"
   },
   "publishConfig": {
+    "registry": "https://registry.npmjs.org",
     "access": "public"
   },
   "homepage": "https://github.com/almadar-io/almadar#readme"
