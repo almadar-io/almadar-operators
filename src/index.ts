@@ -33,7 +33,9 @@ export type OperatorCategory =
     | 'std-async'
     | 'std-nn'
     | 'std-tensor'
-    | 'std-train';
+    | 'std-train'
+    | 'std-prob'
+    | 'std-os';
 
 export type TargetPlatform = 'ts' | 'rust' | 'python';
 
