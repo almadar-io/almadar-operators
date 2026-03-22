@@ -121,6 +121,12 @@
             "target": [
                 "ts"
             ]
+        },
+        "std-os": {
+            "description": "OS-level event watchers for system triggers (file system, processes, network, signals)",
+            "target": [
+                "ts"
+            ]
         }
     },
     "operators": {
@@ -1521,6 +1527,70 @@
             "maxArity": 2,
             "returnType": "array",
             "description": "Symmetric credible interval [lo, hi] from samples"
+        },
+        "os/watch-files": {
+            "category": "std-os",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Register file system watcher. Emits OS_FILE_MODIFIED, OS_FILE_CREATED, OS_FILE_DELETED events.",
+            "hasSideEffects": true
+        },
+        "os/watch-process": {
+            "category": "std-os",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Register process monitor. Emits OS_PROCESS_EXITED, OS_PROCESS_STARTED events.",
+            "hasSideEffects": true
+        },
+        "os/watch-port": {
+            "category": "std-os",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Register port monitor. Emits OS_PORT_OPENED, OS_PORT_CLOSED events.",
+            "hasSideEffects": true
+        },
+        "os/watch-http": {
+            "category": "std-os",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Register HTTP response interceptor. Emits OS_HTTP_RESPONSE events.",
+            "hasSideEffects": true
+        },
+        "os/watch-cron": {
+            "category": "std-os",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Register cron schedule. Emits OS_CRON_FIRE events.",
+            "hasSideEffects": true
+        },
+        "os/watch-signal": {
+            "category": "std-os",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Register OS signal handler. Emits OS_SIGNAL_USR1, OS_SIGNAL_HUP, etc.",
+            "hasSideEffects": true
+        },
+        "os/watch-env": {
+            "category": "std-os",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Register environment variable watcher. Emits OS_ENV_CHANGED events.",
+            "hasSideEffects": true
+        },
+        "os/debounce": {
+            "category": "std-os",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Configure debounce interval (ms) for an OS event type.",
+            "hasSideEffects": true
         }
     }
 }
