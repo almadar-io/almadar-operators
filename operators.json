@@ -98,20 +98,38 @@
                 "ts"
             ]
         },
-        "std-nn": {
-            "description": "Neural network (Python compile target)",
+        "ml-arch": {
+            "description": "Architecture layer definitions (Python compile target)",
             "target": [
                 "python"
             ]
         },
-        "std-tensor": {
-            "description": "Tensor operations (Python compile target)",
+        "ml-effect": {
+            "description": "ML execution effects: forward, train, evaluate (Python compile target)",
             "target": [
                 "python"
             ]
         },
-        "std-train": {
-            "description": "Training utilities (Python compile target)",
+        "ml-tensor": {
+            "description": "Tensor manipulation (Python compile target)",
+            "target": [
+                "python"
+            ]
+        },
+        "ml-graph": {
+            "description": "Graph construction and operations (Python compile target)",
+            "target": [
+                "python"
+            ]
+        },
+        "ml-contract": {
+            "description": "Input/output contract validation (Python compile target)",
+            "target": [
+                "python"
+            ]
+        },
+        "ml-data": {
+            "description": "Data loading and preprocessing (Python compile target)",
             "target": [
                 "python"
             ]
@@ -1591,6 +1609,703 @@
             "returnType": "void",
             "description": "Configure debounce interval (ms) for an OS event type.",
             "hasSideEffects": true
+        },
+        "forward": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Run forward pass through architecture tree",
+            "hasSideEffects": true
+        },
+        "train": {
+            "category": "ml-effect",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Run training loop",
+            "hasSideEffects": true
+        },
+        "evaluate": {
+            "category": "ml-effect",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Run model evaluation",
+            "hasSideEffects": true
+        },
+        "checkpoint/save": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Save model checkpoint",
+            "hasSideEffects": true
+        },
+        "checkpoint/load": {
+            "category": "ml-effect",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "object",
+            "description": "Load model checkpoint",
+            "hasSideEffects": true
+        },
+        "tensor/from": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Create tensor from array"
+        },
+        "tensor/zeros": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Create zero tensor"
+        },
+        "tensor/ones": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Create ones tensor"
+        },
+        "tensor/rand": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Create random uniform tensor"
+        },
+        "tensor/randn": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Create random normal tensor"
+        },
+        "tensor/shape": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "array",
+            "description": "Get tensor shape"
+        },
+        "tensor/get": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Get element at index"
+        },
+        "tensor/slice": {
+            "category": "ml-tensor",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "tensor",
+            "description": "Slice tensor"
+        },
+        "tensor/reshape": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Reshape tensor"
+        },
+        "tensor/flatten": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Flatten to 1D"
+        },
+        "tensor/add": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Element-wise add"
+        },
+        "tensor/sub": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Element-wise subtract"
+        },
+        "tensor/mul": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Element-wise multiply"
+        },
+        "tensor/div": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Element-wise divide"
+        },
+        "tensor/matmul": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Matrix multiply"
+        },
+        "tensor/dot": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Dot product"
+        },
+        "tensor/sum": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Sum elements"
+        },
+        "tensor/mean": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Mean of elements"
+        },
+        "tensor/max": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Max element"
+        },
+        "tensor/min": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Min element"
+        },
+        "tensor/argmax": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Index of max"
+        },
+        "tensor/norm": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "L2 norm"
+        },
+        "tensor/clamp": {
+            "category": "ml-tensor",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "tensor",
+            "description": "Clamp to range"
+        },
+        "tensor/clampPerDim": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Clamp per dimension"
+        },
+        "tensor/allInRange": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Check all values in range"
+        },
+        "tensor/outOfRangeDims": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Find out-of-range dimensions"
+        },
+        "tensor/toArray": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "array",
+            "description": "Convert to array"
+        },
+        "tensor/toList": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "array",
+            "description": "Convert 1D to list"
+        },
+        "tensor/cat": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Concatenate tensors"
+        },
+        "tensor/stack": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Stack tensors (new dim)"
+        },
+        "tensor/transpose": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Transpose dimensions"
+        },
+        "tensor/unsqueeze": {
+            "category": "ml-tensor",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Add dimension"
+        },
+        "tensor/squeeze": {
+            "category": "ml-tensor",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Remove size-1 dims"
+        },
+        "graph/from-entities": {
+            "category": "ml-graph",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "graph",
+            "description": "Build graph from entity collections"
+        },
+        "graph/from-adjacency": {
+            "category": "ml-graph",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "graph",
+            "description": "Build from adjacency matrix"
+        },
+        "graph/from-edge-list": {
+            "category": "ml-graph",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "graph",
+            "description": "Build from edge list"
+        },
+        "graph/add-self-loops": {
+            "category": "ml-graph",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "graph",
+            "description": "Add self-loop edges"
+        },
+        "graph/to-undirected": {
+            "category": "ml-graph",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "graph",
+            "description": "Convert to undirected"
+        },
+        "graph/subgraph": {
+            "category": "ml-graph",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "graph",
+            "description": "Extract subgraph"
+        },
+        "graph/k-hop": {
+            "category": "ml-graph",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "graph",
+            "description": "K-hop neighborhood"
+        },
+        "graph/node-features": {
+            "category": "ml-graph",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Get node feature matrix"
+        },
+        "graph/edge-index": {
+            "category": "ml-graph",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Get edge index"
+        },
+        "graph/edge-features": {
+            "category": "ml-graph",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Get edge features"
+        },
+        "graph/num-nodes": {
+            "category": "ml-graph",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Node count"
+        },
+        "graph/num-edges": {
+            "category": "ml-graph",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Edge count"
+        },
+        "graph/degree": {
+            "category": "ml-graph",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Node degree tensor"
+        },
+        "graph/batch": {
+            "category": "ml-graph",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "graph",
+            "description": "Batch multiple graphs"
+        },
+        "contract/validate-input": {
+            "category": "ml-contract",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Validate tensor against input contract"
+        },
+        "contract/validate-output": {
+            "category": "ml-contract",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Validate tensor against output contract"
+        },
+        "contract/clamp-output": {
+            "category": "ml-contract",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Clamp output to contract ranges"
+        },
+        "contract/violations": {
+            "category": "ml-contract",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "List contract violations"
+        },
+        "contract/entity-to-tensor": {
+            "category": "ml-contract",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Convert entity fields to tensor"
+        },
+        "contract/tensor-to-payload": {
+            "category": "ml-contract",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Convert tensor to event payload"
+        },
+        "data/dataset": {
+            "category": "ml-data",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Create dataset from entities"
+        },
+        "data/dataloader": {
+            "category": "ml-data",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Create batched dataloader"
+        },
+        "data/split": {
+            "category": "ml-data",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Train/val/test split"
+        },
+        "data/normalize": {
+            "category": "ml-data",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Normalize features"
+        },
+        "data/augment": {
+            "category": "ml-data",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Apply data augmentation"
+        },
+        "data/tokenize": {
+            "category": "ml-data",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Tokenize text"
+        },
+        "data/pad": {
+            "category": "ml-data",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Pad sequences"
+        },
+        "nn/sequential": {
+            "category": "ml-arch",
+            "minArity": 1,
+            "maxArity": null,
+            "returnType": "nn/module",
+            "description": "Sequential network from layers"
+        },
+        "nn/linear": {
+            "category": "ml-arch",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "nn/layer",
+            "description": "Fully connected layer"
+        },
+        "nn/relu": {
+            "category": "ml-arch",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "nn/layer",
+            "description": "ReLU activation"
+        },
+        "nn/tanh": {
+            "category": "ml-arch",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "nn/layer",
+            "description": "Tanh activation"
+        },
+        "nn/sigmoid": {
+            "category": "ml-arch",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "nn/layer",
+            "description": "Sigmoid activation"
+        },
+        "nn/softmax": {
+            "category": "ml-arch",
+            "minArity": 0,
+            "maxArity": 1,
+            "returnType": "nn/layer",
+            "description": "Softmax activation"
+        },
+        "nn/dropout": {
+            "category": "ml-arch",
+            "minArity": 0,
+            "maxArity": 1,
+            "returnType": "nn/layer",
+            "description": "Dropout regularization"
+        },
+        "nn/batchnorm": {
+            "category": "ml-arch",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "nn/layer",
+            "description": "Batch normalization"
+        },
+        "nn/layernorm": {
+            "category": "ml-arch",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "nn/layer",
+            "description": "Layer normalization"
+        },
+        "nn/forward": {
+            "category": "ml-arch",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Forward pass (legacy)"
+        },
+        "nn/getWeights": {
+            "category": "ml-arch",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "tensor",
+            "description": "Get weights as flat tensor"
+        },
+        "nn/setWeights": {
+            "category": "ml-arch",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "nn/module",
+            "description": "Set weights from tensor",
+            "hasSideEffects": true
+        },
+        "nn/paramCount": {
+            "category": "ml-arch",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Total trainable parameters"
+        },
+        "nn/clone": {
+            "category": "ml-arch",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "nn/module",
+            "description": "Deep copy network"
+        },
+        "train/loop": {
+            "category": "ml-effect",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "object",
+            "description": "Training loop (legacy)"
+        },
+        "train/step": {
+            "category": "ml-effect",
+            "minArity": 4,
+            "maxArity": 4,
+            "returnType": "object",
+            "description": "Single training step",
+            "hasSideEffects": true
+        },
+        "train/validate": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Validation pass"
+        },
+        "train/checkRegression": {
+            "category": "ml-effect",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "object",
+            "description": "Check regression"
+        },
+        "train/checkConstraints": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Check weight constraints"
+        },
+        "train/checkWeightMagnitude": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "boolean",
+            "description": "Check weight magnitude"
+        },
+        "train/checkForbiddenOutputs": {
+            "category": "ml-effect",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "object",
+            "description": "Check forbidden outputs"
+        },
+        "train/clipGradients": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Clip gradients",
+            "hasSideEffects": true
+        },
+        "train/getGradientNorm": {
+            "category": "ml-effect",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Get gradient norm"
+        },
+        "train/clipWeights": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Clip weights",
+            "hasSideEffects": true
+        },
+        "train/getMaxWeightMagnitude": {
+            "category": "ml-effect",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Get max weight magnitude"
+        },
+        "train/mse": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "MSE loss"
+        },
+        "train/crossEntropy": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "number",
+            "description": "Cross-entropy loss"
+        },
+        "train/huber": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "number",
+            "description": "Huber loss"
+        },
+        "train/sgd": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "void",
+            "description": "SGD optimizer step",
+            "hasSideEffects": true
+        },
+        "train/adam": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 4,
+            "returnType": "void",
+            "description": "Adam optimizer step",
+            "hasSideEffects": true
+        },
+        "train/sampleBatch": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Sample batch from buffer"
+        },
+        "train/computeReturns": {
+            "category": "ml-effect",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "tensor",
+            "description": "Compute discounted returns"
+        },
+        "train/computeAdvantages": {
+            "category": "ml-effect",
+            "minArity": 3,
+            "maxArity": 3,
+            "returnType": "tensor",
+            "description": "Compute GAE advantages"
         }
     }
 }
