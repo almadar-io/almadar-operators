@@ -145,6 +145,12 @@
             "target": [
                 "ts"
             ]
+        },
+        "std-agent": {
+            "description": "Agent intelligence: memory, context, tools, LLM, sessions",
+            "target": [
+                "ts"
+            ]
         }
     },
     "operators": {
@@ -2306,6 +2312,172 @@
             "maxArity": 3,
             "returnType": "tensor",
             "description": "Compute GAE advantages"
+        },
+        "agent/recall": {
+            "category": "std-agent",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Search memories by query"
+        },
+        "agent/memories": {
+            "category": "std-agent",
+            "minArity": 0,
+            "maxArity": 1,
+            "returnType": "array",
+            "description": "List active memories. Optional category filter"
+        },
+        "agent/memory-strength": {
+            "category": "std-agent",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "number",
+            "description": "Strength of a memory (0.0-1.0)"
+        },
+        "agent/is-pinned": {
+            "category": "std-agent",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "boolean",
+            "description": "Whether a memory is pinned"
+        },
+        "agent/provider": {
+            "category": "std-agent",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "string",
+            "description": "Current LLM provider name"
+        },
+        "agent/model": {
+            "category": "std-agent",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "string",
+            "description": "Current LLM model name"
+        },
+        "agent/tools": {
+            "category": "std-agent",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "array",
+            "description": "List registered tool names"
+        },
+        "agent/token-count": {
+            "category": "std-agent",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "number",
+            "description": "Current token count"
+        },
+        "agent/context-usage": {
+            "category": "std-agent",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "number",
+            "description": "Context usage ratio (0.0-1.0)"
+        },
+        "agent/session-id": {
+            "category": "std-agent",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "string",
+            "description": "Current session ID"
+        },
+        "agent/memorize": {
+            "category": "std-agent",
+            "minArity": 2,
+            "maxArity": 3,
+            "returnType": "string",
+            "description": "Record a memory. Returns ID",
+            "hasSideEffects": true
+        },
+        "agent/forget": {
+            "category": "std-agent",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Delete a memory permanently",
+            "hasSideEffects": true
+        },
+        "agent/pin": {
+            "category": "std-agent",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Pin a memory (no decay)",
+            "hasSideEffects": true
+        },
+        "agent/reinforce": {
+            "category": "std-agent",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Reinforce memory (+0.1 strength)",
+            "hasSideEffects": true
+        },
+        "agent/decay": {
+            "category": "std-agent",
+            "minArity": 0,
+            "maxArity": 0,
+            "returnType": "number",
+            "description": "Run decay pass. Returns forgotten count",
+            "hasSideEffects": true
+        },
+        "agent/generate": {
+            "category": "std-agent",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "string",
+            "description": "Call LLM with prompt",
+            "hasSideEffects": true
+        },
+        "agent/switch-provider": {
+            "category": "std-agent",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "void",
+            "description": "Switch LLM provider and optionally model",
+            "hasSideEffects": true
+        },
+        "agent/invoke": {
+            "category": "std-agent",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "object",
+            "description": "Execute an agent tool by name",
+            "hasSideEffects": true
+        },
+        "agent/compact": {
+            "category": "std-agent",
+            "minArity": 0,
+            "maxArity": 1,
+            "returnType": "object",
+            "description": "Compact context. Returns { before, after }",
+            "hasSideEffects": true
+        },
+        "agent/fork": {
+            "category": "std-agent",
+            "minArity": 0,
+            "maxArity": 1,
+            "returnType": "string",
+            "description": "Fork session. Returns new branch ID",
+            "hasSideEffects": true
+        },
+        "agent/label": {
+            "category": "std-agent",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "void",
+            "description": "Label current point in session",
+            "hasSideEffects": true
+        },
+        "agent/search-code": {
+            "category": "std-agent",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Search public repos for code patterns",
+            "hasSideEffects": true
         }
     }
 }

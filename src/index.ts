@@ -35,7 +35,8 @@ export type OperatorCategory =
     | 'std-tensor'
     | 'std-train'
     | 'std-prob'
-    | 'std-os';
+    | 'std-os'
+    | 'std-agent';
 
 export type TargetPlatform = 'ts' | 'rust' | 'python';
 
