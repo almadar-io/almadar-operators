@@ -149,7 +149,8 @@
         "std-agent": {
             "description": "Agent intelligence: memory, context, tools, LLM, sessions",
             "target": [
-                "ts"
+                "ts",
+                "rust"
             ]
         }
     },
