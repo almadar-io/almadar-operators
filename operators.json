@@ -152,6 +152,13 @@
                 "ts",
                 "rust"
             ]
+        },
+        "std-composition": {
+            "description": "Behavior composition (compile-time)",
+            "target": [
+                "ts",
+                "rust"
+            ]
         }
     },
     "operators": {
@@ -2479,6 +2486,38 @@
             "returnType": "array",
             "description": "Search public repos for code patterns",
             "hasSideEffects": true
+        },
+        "behavior/compose": {
+            "category": "std-composition",
+            "minArity": 1,
+            "maxArity": 1,
+            "returnType": "object",
+            "description": "Compose N orbitals into one application schema. Wires events, picks layout, generates pages.",
+            "hasSideEffects": false
+        },
+        "behavior/detect-layout": {
+            "category": "std-composition",
+            "minArity": 1,
+            "maxArity": 2,
+            "returnType": "string",
+            "description": "Auto-detect layout from orbital count and wiring topology. Returns single, tabs, sidebar, dashboard, or wizard-flow.",
+            "hasSideEffects": false
+        },
+        "behavior/pipe": {
+            "category": "std-composition",
+            "minArity": 2,
+            "maxArity": null,
+            "returnType": "any",
+            "description": "Left-to-right composition. Each step receives the previous result as its first arg.",
+            "hasSideEffects": false
+        },
+        "behavior/wire": {
+            "category": "std-composition",
+            "minArity": 2,
+            "maxArity": 2,
+            "returnType": "array",
+            "description": "Apply cross-orbital event wiring. Adds external emits/listens to inline traits.",
+            "hasSideEffects": false
         }
     }
 }

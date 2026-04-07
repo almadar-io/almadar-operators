@@ -36,7 +36,8 @@ export type OperatorCategory =
     | 'std-train'
     | 'std-prob'
     | 'std-os'
-    | 'std-agent';
+    | 'std-agent'
+    | 'std-composition';
 
 export type TargetPlatform = 'ts' | 'rust' | 'python';
 
